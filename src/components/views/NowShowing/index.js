@@ -49,33 +49,7 @@ const NowShowing = () =>{
     const image2 = require(`../../images/carousel/ttm.jpg`);
     const image3 = require(`../../images/carousel/tim.jpg`);
 
-    
- 
-//     const initialKeyState = {
-//       visible: false,
-//     };
-  
-//   const [popup, setKey] = useState (initialKeyState)
 
-//   const showModal = () => {
-//     setKey({
-//         visible: true,
-//       });
-//   };
-
-//   const handleOk = e => {
-//     console.log(e);
-//     setKey({
-//       visible: false,
-//     });
-//   };
-
-//   const handleCancel = e => {
-//     console.log(e);
-//     setKey({
-//       visible: false,
-//     });
-//   };
 
    
 
@@ -121,13 +95,6 @@ const NowShowing = () =>{
                         />
                         <Meta title={data.title} style={{paddingTop:"20px"}}/>
                         </Card >
-                            {/* <Modal
-                            title="Basic Modal"
-                            visible={setKey.visible}
-                            onOk={setKey.handleOk}
-                            >
-                            <p>{data.title}</p>
-                            </Modal> */}
                     </Col>
                     ))
                     }

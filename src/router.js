@@ -9,8 +9,8 @@ const Router = () => {
         return (
             <Switch>
                 <Route exact path="/" component={NowShowingPage}/>
-                {/* <Route path="/comingSoon" component={ComingSoonPage}/>
-                <Route path="/bookTicket" component={BookTicketPage}/>
+                {/* <Route path="/upcoming" component={ComingSoonPage}/>
+                <Route path="/buyTicket" component={BookTicketPage}/>
                 <Route path="/aboutUs" component={AboutUsPage}/> */}
             </Switch>
         )
