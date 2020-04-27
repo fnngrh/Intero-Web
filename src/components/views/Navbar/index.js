@@ -1,4 +1,4 @@
-import React ,{ useState } from 'react';
+import React ,{ Component} from 'react';
 import { Menu, Layout} from 'antd';
 import { Link } from 'react-router-dom';
 import './navbar.css'
@@ -7,27 +7,28 @@ import {
   RightCircleTwoTone,
   CopyrightCircleTwoTone,
   CreditCardTwoTone,
-  InstagramFilled,
-  TwitterCircleFilled ,
+  PlusCircleTwoTone ,
+  InfoCircleTwoTone ,
 } from '@ant-design/icons';
 const { Header } = Layout;
 const { SubMenu } = Menu;
 
 
-const Navbar = () =>{
-  const initialKeyState = {
-    current: 'play',
-  }
 
-  const [NPlaying, setKey] = useState (initialKeyState)
+class Navbar extends Component {
+  state = {
+    current: 'smiley',
+  };
 
-  const handleClick = NPlaying => {
-    console.log('click ', NPlaying);
-    setKey({
-      current: NPlaying.current,
-    })
-  }
+  handleClick = e => {
+    console.log('click ', e);
+    this.setState({
+      current: e.key,
+    });
+  };
+
   
+  render () {
     return (
       <Layout>
         <Header style={{background: '#fff'}}>
@@ -35,7 +36,7 @@ const Navbar = () =>{
         <Menu mode="horizontal">
           <Menu.Item key="nowshowing" >
         <PlayCircleTwoTone twoToneColor="#eb2f96"/>
-            <Link to="">Now Showing</Link> 
+            <Link to="/">Now Showing</Link> 
           </Menu.Item>
           <Menu.Item key="comingsoon">
         <RightCircleTwoTone twoToneColor="#eb2f96"/>
@@ -43,30 +44,30 @@ const Navbar = () =>{
           </Menu.Item>
         <SubMenu
           title={
-            <span className="submenu-title-wrapper">
+            <span className="ticket">
               <CreditCardTwoTone twoToneColor="#eb2f96" />
-              Buy Ticket
+              Ticket
             </span>
           }
         >
           <Menu.ItemGroup>
-            <Menu.Item key="instagram">
-            <InstagramFilled />
-              <a href="https://instagram.com/fnngrh">
-                  Instagram
+            <Menu.Item key="ticket">
+            <PlusCircleTwoTone twoToneColor="#eb2f96"/>
+              <a href="/buyNow">
+                  Buy Now
               </a>
             </Menu.Item>
-            <Menu.Item key="twitter">
-            <TwitterCircleFilled />
-              <a href="https://twitter.com/lohkoqq">
-                  Twitter
+            <Menu.Item key="">
+            <InfoCircleTwoTone twoToneColor="#eb2f96"/>
+              <a href="">
+                  History
               </a>
             </Menu.Item>
           </Menu.ItemGroup>
         </SubMenu>
         <Menu.Item key="about">
         <CopyrightCircleTwoTone twoToneColor="#eb2f96" />
-          <a href="https://github.com/fanianugroho">
+          <a href="">
             About Us
           </a>
         </Menu.Item>
@@ -74,8 +75,8 @@ const Navbar = () =>{
       </div>
       </Header>
       </Layout>
-  
-    );
+        );
+        }
   }
 
 

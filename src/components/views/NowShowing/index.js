@@ -1,4 +1,4 @@
-import React , {useState} from 'react';
+import React , {Component} from 'react';
 import { Layout, Row, Col, Card, Button,Modal} from 'antd';
 import { Carousel } from 'antd';
 import "./nowshowing.css"
@@ -8,53 +8,49 @@ const { Meta } = Card;
 
 
 
-const NowShowing = () =>{
+class NowShowing extends Component{
 
-    const cardData = [
-        {
-            title : "Birds of Prey",
-            image : require(`../../images/poster/bop.jpg`),
-        },
-        {
-            title : "Milea: Suara dari Dilan",
-            image : require(`../../images/poster/milea.jpg`),
-        },
-        {
-            title : "The Invisible Man",
-            image : require(`../../images/poster/tim.jpg`),
-        },
-        {
-            title : "Sebelum Iblis Menjemput Ayat 2",
-            image : require(`../../images/poster/sim.jpg`),
-        },
-        {
-            title : "Teman Tapi Menikah 2",
-            image : require(`../../images/poster/ttm2.jpg`),
-        },
-        {
-            title : "Toko Barang Mantan",
-            image : require(`../../images/poster/tbm.jpg`),
-        },
-        {
-            title : "Fantasy Island",
-            image : require(`../../images/poster/fa.jpg`),
-        },
-        {
-            title : "The King's Man",
-            image : require(`../../images/poster/km.jpg`),
-        },
-    ]
-    
-    const image1 = require(`../../images/carousel/tbm.jpg`);
-    const image2 = require(`../../images/carousel/ttm.jpg`);
-    const image3 = require(`../../images/carousel/tim.jpg`);
-
-
-
-   
-
-    return (
+    render(){
+        const cardData = [
+            {
+                title : "Birds of Prey",
+                image : require(`../../images/poster/bop.jpg`),
+            },
+            {
+                title : "Milea: Suara dari Dilan",
+                image : require(`../../images/poster/milea.jpg`),
+            },
+            {
+                title : "The Invisible Man",
+                image : require(`../../images/poster/tim.jpg`),
+            },
+            {
+                title : "Sebelum Iblis Menjemput Ayat 2",
+                image : require(`../../images/poster/sim.jpg`),
+            },
+            {
+                title : "Teman Tapi Menikah 2",
+                image : require(`../../images/poster/ttm2.jpg`),
+            },
+            {
+                title : "Toko Barang Mantan",
+                image : require(`../../images/poster/tbm.jpg`),
+            },
+            {
+                title : "Fantasy Island",
+                image : require(`../../images/poster/fa.jpg`),
+            },
+            {
+                title : "The King's Man",
+                image : require(`../../images/poster/km.jpg`),
+            },
+        ]
         
+        const image1 = require(`../../images/carousel/tbm.jpg`);
+        const image2 = require(`../../images/carousel/ttm.jpg`);
+        const image3 = require(`../../images/carousel/tim.jpg`);
+        
+    return (
         <div>
         <Layout style={{padding:'16px auto'}}>
             <Header style={{background: '#fff'}}>
@@ -108,11 +104,7 @@ const NowShowing = () =>{
         </div>
     );
   }
+  }
        
-    
-
-        
-    
-
 
 export default NowShowing;
