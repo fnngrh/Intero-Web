@@ -1,7 +1,7 @@
 import React from 'react';
 import {Switch, Route} from 'react-router-dom';
 import NowShowingPage from './components/views/NowShowing';
-import UpcomingPage from './components/views/Upcoming';
+import UpcomingPage from './components/views/ComingSoon';
 import BuyNowPage from './components/views/BuyNow';
 import AboutUsPage from './components/views/AboutUs';
 
