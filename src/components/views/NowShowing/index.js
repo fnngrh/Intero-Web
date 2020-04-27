@@ -9,48 +9,73 @@ const { Meta } = Card;
 
 
 class NowShowing extends Component{
+    
+
 
     render(){
+
         const cardData = [
             {
                 title : "Birds of Prey",
                 image : require(`../../images/poster/bop.jpg`),
+                sinopsis : "jajkshajkhjkashsajkhsjkshajhs",
             },
             {
                 title : "Milea: Suara dari Dilan",
                 image : require(`../../images/poster/milea.jpg`),
+                sinopsis : "jajkshajkhjkashsajkhsjkshajhs",
             },
             {
                 title : "The Invisible Man",
                 image : require(`../../images/poster/tim.jpg`),
+                sinopsis : "jajkshajkhjkashsajkhsjkshajhs",
             },
             {
                 title : "Sebelum Iblis Menjemput Ayat 2",
                 image : require(`../../images/poster/sim.jpg`),
+                sinopsis : "jajkshajkhjkashsajkhsjkshajhs",
             },
             {
                 title : "Teman Tapi Menikah 2",
                 image : require(`../../images/poster/ttm2.jpg`),
+                sinopsis : "jajkshajkhjkashsajkhsjkshajhs",
             },
             {
                 title : "Toko Barang Mantan",
                 image : require(`../../images/poster/tbm.jpg`),
+                sinopsis : "jajkshajkhjkashsajkhsjkshajhs",
             },
             {
                 title : "Fantasy Island",
                 image : require(`../../images/poster/fa.jpg`),
+                sinopsis : "jajkshajkhjkashsajkhsjkshajhs",
             },
             {
                 title : "The King's Man",
                 image : require(`../../images/poster/km.jpg`),
+                sinopsis : "jajkshajkhjkashsajkhsjkshajhs",
             },
         ]
         
         const image1 = require(`../../images/carousel/tbm.jpg`);
         const image2 = require(`../../images/carousel/ttm.jpg`);
         const image3 = require(`../../images/carousel/tim.jpg`);
-        
+
+        function info() {
+            Modal.info({
+              title: 'Detail Film',
+              content: (
+                <div>
+                  <p>tst</p>
+                </div>
+                
+              ),
+              onOk() {},
+            });
+          }
+    
     return (
+        
         <div>
         <Layout style={{padding:'16px auto'}}>
             <Header style={{background: '#fff'}}>
@@ -83,7 +108,7 @@ class NowShowing extends Component{
                     <Row gutter={[16, 8]}>
                     { cardData.map (data=> (
                     <Col span={6}>
-                        <Card hoverable title="" bordered={true} >
+                        <Card hoverable title="" bordered={true} onClick={info}>
                         <img
                             src={data.image}
                             alt="NowShowing"
