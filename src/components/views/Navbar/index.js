@@ -59,7 +59,7 @@ class Navbar extends Component {
             </Menu.Item>
             <Menu.Item key="">
             <InfoCircleTwoTone twoToneColor="#eb2f96"/>
-              <a href="">
+              <a href="/history">
                   History
               </a>
             </Menu.Item>

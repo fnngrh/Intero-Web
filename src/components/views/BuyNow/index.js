@@ -4,21 +4,16 @@ import {
   Input,
   Button,
   Select,
-  Cascader,
-  DatePicker,
   InputNumber,
-  TreeSelect,
-  Switch,
   Layout,
 } from 'antd';
-import './buynow.css'
 
 const { Content, Header,Footer } = Layout;
 
 
 const BuyNow = () => {
   const [componentSize, setComponentSize] = useState('medium');
-  
+
   return (
     <Layout style={{padding:'16px auto', background: '#fff'}}>
         <Header style={{background: '#fff'}}>
@@ -46,40 +41,14 @@ const BuyNow = () => {
         </Form.Item>
         <Form.Item label="Jumlah Tiket">
           <InputNumber />
-        </Form.Item>
-        <Form.Item label="TreeSelect">
-          <TreeSelect
-            treeData={[
-              { title: 'Light', value: 'light', children: [{ title: 'Bamboo', value: 'bamboo' }] },
-            ]}
-          />
-        </Form.Item>
-        <Form.Item label="Cascader">
-          <Cascader
-            options={[
-              {
-                value: 'zhejiang',
-                label: 'Zhejiang',
-                children: [
-                  {
-                    value: 'hangzhou',
-                    label: 'Hangzhou',
-                  },
-                ],
-              },
-            ]}
-          />
-        </Form.Item>
-        <Form.Item label="DatePicker">
-          <DatePicker />
-        </Form.Item>
-        <Form.Item label="Switch">
-          <Switch />
-        </Form.Item>
-        <Form.Item label="finish">
-          <Button>Finish</Button>
+        </Form.Item> 
+        <Form.Item label="Total Harga">
+          <h4>
+              HH
+          </h4>
         </Form.Item>
       </Form>
+      <Button style={{padding: '16px auto'}}>Finish</Button>
     </Content>
     <Footer style={{backgroundColor:'white' , textAlign: 'center'}}>Kelompok Film ©2020 </Footer>
     </Header>
