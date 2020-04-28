@@ -1,5 +1,5 @@
-import React , {useState} from 'react';
-import { Layout, Row, Col, Card, Button,Modal} from 'antd';
+import React , {Component} from 'react';
+import { Layout, Row, Col, Card, Button} from 'antd';
 import { Carousel } from 'antd';
 import "./upcoming.css"
 const { Content, Header,Footer } = Layout;
@@ -8,7 +8,10 @@ const { Meta } = Card;
 
 
 
-const Upcoming = () =>{ 
+class Upcoming extends Component{ 
+
+   
+render(){
     const cardData = [
         {
             title : "Trolls World Tour",
@@ -48,36 +51,6 @@ const Upcoming = () =>{
     const image2 = require(`../../images/carousel/still2.jpg`);
     const image3 = require(`../../images/carousel/teen2.jpg`);
 
-    
- 
-//     const initialKeyState = {
-//       visible: false,
-//     };
-  
-//   const [popup, setKey] = useState (initialKeyState)
-
-//   const showModal = () => {
-//     setKey({
-//         visible: true,
-//       });
-//   };
-
-//   const handleOk = e => {
-//     console.log(e);
-//     setKey({
-//       visible: false,
-//     });
-//   };
-
-//   const handleCancel = e => {
-//     console.log(e);
-//     setKey({
-//       visible: false,
-//     });
-//   };
-
-   
-
     return (
         
         <div>
@@ -85,20 +58,20 @@ const Upcoming = () =>{
             <Header style={{background: '#fff'}}>
             <Content style={{padding : '16px auto'}}>
                 <Carousel autoplay>
-                    <div class="posisi">
+                    <div class="posisi2">
                         <img
                             src={image1}
                             style={{maxWidth: '100%'}}
                             />
                         
                     </div>
-                    <div class="posisi">
+                    <div class="posisi2">
                         <img
                             src={image3}
                             style={{maxWidth: '100%'}}
                             />
                     </div>
-                    <div class="posisi">
+                    <div class="posisi2">
                         <img
                             src={image2}
                             style={{maxWidth: '100%'}}
@@ -120,13 +93,6 @@ const Upcoming = () =>{
                         />
                         <Meta title={data.title} style={{paddingTop:"20px"}}/>
                         </Card >
-                            {/* <Modal
-                            title="Basic Modal"
-                            visible={setKey.visible}
-                            onOk={setKey.handleOk}
-                            >
-                            <p>{data.title}</p>
-                            </Modal> */}
                     </Col>
                     ))
                     }
@@ -139,6 +105,7 @@ const Upcoming = () =>{
         </Layout>
         </div>
     );
+    }
   }
        
     

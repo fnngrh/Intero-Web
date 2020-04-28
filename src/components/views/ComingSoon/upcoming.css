@@ -1,12 +1,13 @@
 .ant-carousel .slick-slide {
     line-height: 0px;
     padding : 16px auto;
+    max-width: 70%;
   }
   
   .ant-carousel .slick-slide h3 {
     color: #000;
   }
-  .posisi{
+  .posisi2{
     padding : 16px auto;
-    max-width: 70%;
+    max-width: 50%;
   }

@@ -7,19 +7,20 @@ import {
   InputNumber,
   Layout,
 } from 'antd';
+import './buynow.css'
 
 const { Content, Header,Footer } = Layout;
 
 
 const BuyNow = () => {
-  const [componentSize, setComponentSize] = useState('medium');
+  const [componentSize] = useState('medium');
 
   return (
     <Layout style={{padding:'16px auto', background: '#fff'}}>
         <Header style={{background: '#fff'}}>
         <Content style={{padding : '16px auto'}}>
         <Button shape="round"  style={{backgroundColor:'white', margin: '16px auto'}}>
-                     <h4>Buy Ticket</h4>
+              <h4>Buy Ticket</h4>
         </Button>
 
       <Form
@@ -42,13 +43,8 @@ const BuyNow = () => {
         <Form.Item label="Jumlah Tiket">
           <InputNumber />
         </Form.Item> 
-        <Form.Item label="Total Harga">
-          <h4>
-              HH
-          </h4>
-        </Form.Item>
       </Form>
-      <Button style={{padding: '16px auto'}}>Finish</Button>
+      <Button type="primary" ghost style={{padding: '16px auto'}}>Finish</Button>
     </Content>
     <Footer style={{backgroundColor:'white' , textAlign: 'center'}}>Kelompok Film ©2020 </Footer>
     </Header>
