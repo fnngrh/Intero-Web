@@ -1,0 +1,35 @@
+.ant-avatar {
+    display: block;
+    margin: 16px auto;
+}
+.ant-avatar-image {
+    background: gray;
+    border-style: groove;
+}
+.profil{
+    margin: 20px;
+    padding: 20px ;
+    background-color:#ffe3ed;
+    border-radius: 10%;
+}
+.font{
+    margin-top: 20px;
+    margin-left: 450px;
+    margin-right: 450px;
+    font-weight: 1000;
+    font-size: 90px;
+    background-color: #f1f3f4;
+}
+.fontidentitas{ 
+    line-height: 20px;
+    font-weight: 100;
+    font-size: 20px;
+
+}
+.fontcontact{
+    line-height: 40px;
+    padding:0px;
+    margin: 0px;
+    font-weight: 500;
+    font-size: 16px;
+}

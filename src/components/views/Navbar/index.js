@@ -17,7 +17,7 @@ const { SubMenu } = Menu;
 
 class Navbar extends Component {
   state = {
-    current: 'smiley',
+    current: 'nowshowing',
   };
 
   handleClick = e => {
@@ -67,7 +67,7 @@ class Navbar extends Component {
         </SubMenu>
         <Menu.Item key="about">
         <CopyrightCircleTwoTone twoToneColor="#eb2f96" />
-          <a href="">
+          <a href="/aboutUs">
             About Us
           </a>
         </Menu.Item>
