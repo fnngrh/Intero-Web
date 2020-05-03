@@ -1,31 +1,25 @@
-import React , {Component} from 'react';
+import React from 'react';
 import { Layout, Row, Col, Card, Button} from 'antd';
-import axios from 'axios';
 import { Carousel } from 'antd';
-import "./upcoming.css"
+import "./upcoming.css";
+import firebase from '../../../firebase';
 const { Content, Header,Footer } = Layout;
 const { Meta } = Card;
 
 
+function Upcoming(){ 
 
-class Upcoming extends Component{ 
+    const [upcoming, setUpcoming] = React.useState([]);
 
-      state = {
-        film : [],
-    }
-    
-    componentDidMount () {
-        this.getFilmData();
-    }
-    
-    getFilmData = () => {
-        axios.get(`https://api.themoviedb.org/3/movie/upcoming?api_key=5c3d8d8a6d3844bc331ef5ec6e8e6f01&language=en-US&page=1`)
-          .then(res => {
-            this.setState({ film : res.data.result });
-          })
-    }
-   
-render(){
+    React.useEffect(() => {
+        const fetchData = async () => {
+            const db = firebase.firestore()
+            const data = await db.collection("upcoming").get()
+            setUpcoming(data.docs.map(doc => ({ ...doc.data(), id: doc.id })));
+        };
+        fetchData();
+    }, []);
+
     
     const image1 = require(`../../images/carousel/myspy.jpg`);
     const image2 = require(`../../images/carousel/still2.jpg`);
@@ -63,15 +57,17 @@ render(){
                 </Button>
                 <div className="site-card-wrapper">
                     <Row gutter={[16, 8]}>
-                    { this.state.film.map (data=> 
+                    { upcoming.map (data=> 
                     <Col span={6}>
                         <Card hoverable title="" bordered={true} >
                         <img
-                            src={data.poster_path}
+                            src={data.poster}
                             alt="Upcoming"
-                            style={{maxWidth: '100%'}}
+                            style={{maxWidth: '100%', maxHeight: '300px'}}
                         />
-                        <Meta title={data.original_title} style={{paddingTop:"20px"}}/>
+                        <Meta title={data.title} style={{paddingTop:"20px"}}/>
+                        <Meta title={data.releasedate} style={{paddingTop:"20px"}}/>
+                        <Meta title={data.genre} style={{paddingTop:"20px"}}/>
                         </Card >
                     </Col>
                     )}
@@ -84,12 +80,5 @@ render(){
         </div>
     );
     }
-  }
-       
-    
-
-        
-    
-
 
 export default Upcoming;
