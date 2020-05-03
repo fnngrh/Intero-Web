@@ -1,5 +1,6 @@
 import React , {Component} from 'react';
 import { Layout, Row, Col, Card, Button} from 'antd';
+import axios from 'axios';
 import { Carousel } from 'antd';
 import "./upcoming.css"
 const { Content, Header,Footer } = Layout;
@@ -7,45 +8,24 @@ const { Meta } = Card;
 
 
 
-
 class Upcoming extends Component{ 
 
+      state = {
+        film : [],
+    }
+    
+    componentDidMount () {
+        this.getFilmData();
+    }
+    
+    getFilmData = () => {
+        axios.get(`https://api.themoviedb.org/3/movie/upcoming?api_key=5c3d8d8a6d3844bc331ef5ec6e8e6f01&language=en-US&page=1`)
+          .then(res => {
+            this.setState({ film : res.data.result });
+          })
+    }
    
 render(){
-    const cardData = [
-        {
-            title : "Trolls World Tour",
-            image : require(`../../images/poster/twt.jpg`),
-        },
-        {
-            title : "Trauma Center",
-            image : require(`../../images/poster/tc.jpg`),
-        },
-        {
-            title : "Bucin",
-            image : require(`../../images/poster/bucin.jpg`),
-        },
-        {
-            title : "I Still Believe",
-            image : require(`../../images/poster/still.jpg`),
-        },
-        {
-            title : "Jexi",
-            image : require(`../../images/poster/jexi.jpg`),
-        },
-        {
-            title : "Teen Spirit",
-            image : require(`../../images/poster/10spirit.jpg`),
-        },
-        {
-            title : "Killerman",
-            image : require(`../../images/poster/killer.jpg`),
-        },
-        {
-            title : "My Spy",
-            image : require(`../../images/poster/myspy.jpg`),
-        },
-    ]
     
     const image1 = require(`../../images/carousel/myspy.jpg`);
     const image2 = require(`../../images/carousel/still2.jpg`);
@@ -83,21 +63,19 @@ render(){
                 </Button>
                 <div className="site-card-wrapper">
                     <Row gutter={[16, 8]}>
-                    { cardData.map (data=> (
+                    { this.state.film.map (data=> 
                     <Col span={6}>
                         <Card hoverable title="" bordered={true} >
                         <img
-                            src={data.image}
+                            src={data.poster_path}
                             alt="Upcoming"
                             style={{maxWidth: '100%'}}
                         />
-                        <Meta title={data.title} style={{paddingTop:"20px"}}/>
+                        <Meta title={data.original_title} style={{paddingTop:"20px"}}/>
                         </Card >
                     </Col>
-                    ))
-                    }
+                    )}
                     </Row>
-                    
                     </div>
                 </Content>
                 <Footer style={{backgroundColor:'white' , textAlign: 'center'}}>Kelompok Film ©2020 </Footer>

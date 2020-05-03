@@ -1,6 +1,5 @@
 import React from 'react';
 import firebase from '../../../firebase';
-import { Link } from 'react-router-dom';
 import {
   Form,
   Input,
@@ -33,7 +32,6 @@ function BuyNow() {
         </Button>
 
       <Form
-        href ="/buyNow"
         style={{padding: '16px auto'}}
         labelCol={{ span: 8 }}
         wrapperCol={{ span: 10 }}
