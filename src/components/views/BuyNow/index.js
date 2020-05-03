@@ -1,10 +1,10 @@
 import React from 'react';
 import firebase from '../../../firebase';
+import { Link } from 'react-router-dom';
 import {
   Form,
   Input,
   Button,
-  Select,
   Layout,
 } from 'antd';
 import './buynow.css'
@@ -33,6 +33,7 @@ function BuyNow() {
         </Button>
 
       <Form
+        href ="/buyNow"
         style={{padding: '16px auto'}}
         labelCol={{ span: 8 }}
         wrapperCol={{ span: 10 }}
@@ -46,14 +47,6 @@ function BuyNow() {
         <Form.Item label="Masukan Nama Film" name="choosenmovie" style={{margin : '16px auto'}}>
           <Input value={newChoosenMovie} onChange={(e) => setChoosenMovie(e.target.value)} />
         </Form.Item>
-
-        {/* <Form.Item label="Pilih Film">
-          <Select>
-          {nowshowing.map(movie =>
-            <Select.Option value={newChoosenMovie} onChange={(e) => setChoosenMovie(e.target.value)}>{movie.title}</Select.Option>
-          )}
-          </Select>
-        </Form.Item> */}
         <Form.Item label="Jumlah Tiket">
           <Input value={newTotalTicket} onChange={(e) => setTotalTicket(e.target.value)}/>
         </Form.Item> 

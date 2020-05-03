@@ -8,16 +8,16 @@ const { Meta } = Card;
 
 
 function NowShowing() {
-    const [nowshowing, setNowshowing] = React.useState([])
+    const [nowshowing, setNowshowing] = React.useState([]);
 
     React.useEffect(() => {
         const fetchData = async () => {
             const db = firebase.firestore()
             const data = await db.collection("nowshowing").get()
-            setNowshowing(data.docs.map(doc => doc.data()))
-        }
-        fetchData()
-    }, [])
+            setNowshowing(data.docs.map(doc => ({ ...doc.data(), id: doc.id })));
+        };
+        fetchData();
+    }, []);
         
     const image1 = require(`../../images/carousel/tbm.jpg`);
     const image2 = require(`../../images/carousel/ttm.jpg`);
