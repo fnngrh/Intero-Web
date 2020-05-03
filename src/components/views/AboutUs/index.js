@@ -10,7 +10,7 @@ class AboutUs extends Component{
         const Profile = [
             {
                 nama : "Ahmad Rifal",
-                image : require(`../../images/aboutus/rifal.jpeg`),
+                image : require(`../../images/aboutus/rifal.jpg`),
                 instagram : "https://instagram.com/rifalahmd2",
                 twitter : "https://twitter.com/kalepalew",
                 github : "https://github.com/regalforlyfe"
