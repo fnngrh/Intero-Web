@@ -1,19 +1,16 @@
-import firebase from 'firebase/app';
-// import 'firebase/auth';
-// import 'firebase/firestore';
+import firebase from 'firebase';
 
-var firebaseConfig = {
-    apiKey: "AIzaSyDDFwLaYf8yXX2OlWNoH0nMSTyJBORyAM8",
-    authDomain: "intero-web-31974.firebaseapp.com",
-    databaseURL: "https://intero-web-31974.firebaseio.com",
-    projectId: "intero-web-31974",
-    storageBucket: "intero-web-31974.appspot.com",
-    messagingSenderId: "747230596884",
-    appId: "1:747230596884:web:041be1dcdc12fa1bd8fc01",
-    measurementId: "G-QB0ZCN9HPW"
+const config = {
+    apiKey: "AIzaSyDRFj-LvZ-0zhd52NJwS6wmxUqIDtPq0pI",
+    authDomain: "intero-web-uts.firebaseapp.com",
+    databaseURL: "https://intero-web-uts.firebaseio.com",
+    projectId: "intero-web-uts",
+    storageBucket: "intero-web-uts.appspot.com",
+    messagingSenderId: "378794661725",
+    appId: "1:378794661725:web:c5f15475774b2997ecbab4",
+    measurementId: "G-WWE5F91XGH"
   };
- 
-  firebase.initializeApp(firebaseConfig);
-
+  // Initialize Firebase
+  firebase.initializeApp(config);
 
   export default firebase;
