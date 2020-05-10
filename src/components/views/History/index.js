@@ -1,15 +1,25 @@
-import React , {Component} from 'react';
-import { Layout,Button,Descriptions} from 'antd';
-import './history.css'
+import React from 'react';
+import { Layout,Card,Row,Button} from 'antd';
+import './history.css';
+import firebase from '../../../firebase';
+import ButtonAksi from './buttonaction';
+import { EditTwoTone } from '@ant-design/icons';
+
 const { Content, Header,Footer } = Layout;
 
 
-class History extends Component{
-    
 
+function History() {
+  const [showticket, setShowTicket] = React.useState([]);
 
-  render(){
-      
+  React.useEffect(() => {
+      const fetchData = async () => {
+          const db = firebase.firestore()
+          const data = await db.collection("ticket").get()
+          setShowTicket(data.docs.map(doc => ({ ...doc.data(), id: doc.id })));
+      }
+      fetchData();
+  }, []);
   
   return (
       
@@ -20,25 +30,28 @@ class History extends Component{
             <Button shape="round"  style={{backgroundColor:'white', margin: '16px auto'}}>
                       <h4>History Order</h4>
             </Button>
-             <Descriptions  bordered >
-              <Descriptions.Item label="Email">Email@ugm.com</Descriptions.Item>
-              <Descriptions.Item label="Nama">Lalala</Descriptions.Item>
-              <Descriptions.Item label="Actions" >
-                <Button type="primary" ghost >Edit</Button>
-                <Button danger>Delete</Button>
-              </Descriptions.Item>
-              <Descriptions.Item label="Judul Film">Milea</Descriptions.Item>
-              <Descriptions.Item label="Jumlah Tiket">2</Descriptions.Item>
-              </Descriptions>
-              
-             
+            <Row justify="center">
+            {showticket.map(ticket =>
+             <Card title="Ticket" style={{ width: 300 }}>
+               <p>Atas nama <b>{ticket.name}</b></p>
+               <p>Email : <b>{ticket.email}</b></p>
+               <p>Film yang dipilih : <b>{ticket.choosenmovie}</b></p>
+               <p>Total Tiket : <b>{ticket.totalticket}</b></p>
+               <a href="/EditBuy">
+                   <Button><EditTwoTone /></Button>
+              </a>
+               <a href="/History">
+               <ButtonAksi ticket={ticket}/>
+               </a>
+             </Card>
+            )}
+            </Row>
               </Content>
               <Footer style={{backgroundColor:'white' , textAlign: 'center'}}>Kelompok Film ©2020 </Footer>
           </Header>
       </Layout>
       </div>
   );
-}
 }
      
 

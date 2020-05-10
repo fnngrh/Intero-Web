@@ -1,51 +1,25 @@
-import React , {Component} from 'react';
+import React from 'react';
 import { Layout, Row, Col, Card, Button} from 'antd';
 import { Carousel } from 'antd';
-import "./upcoming.css"
+import "./upcoming.css";
+import firebase from '../../../firebase';
 const { Content, Header,Footer } = Layout;
 const { Meta } = Card;
 
 
+function Upcoming(){ 
 
+    const [upcoming, setUpcoming] = React.useState([]);
 
-class Upcoming extends Component{ 
+    React.useEffect(() => {
+        const fetchData = async () => {
+            const db = firebase.firestore()
+            const data = await db.collection("upcoming").get()
+            setUpcoming(data.docs.map(doc => ({ ...doc.data(), id: doc.id })));
+        };
+        fetchData();
+    }, []);
 
-   
-render(){
-    const cardData = [
-        {
-            title : "Trolls World Tour",
-            image : require(`../../images/poster/twt.jpg`),
-        },
-        {
-            title : "Trauma Center",
-            image : require(`../../images/poster/tc.jpg`),
-        },
-        {
-            title : "Bucin",
-            image : require(`../../images/poster/bucin.jpg`),
-        },
-        {
-            title : "I Still Believe",
-            image : require(`../../images/poster/still.jpg`),
-        },
-        {
-            title : "Jexi",
-            image : require(`../../images/poster/jexi.jpg`),
-        },
-        {
-            title : "Teen Spirit",
-            image : require(`../../images/poster/10spirit.jpg`),
-        },
-        {
-            title : "Killerman",
-            image : require(`../../images/poster/killer.jpg`),
-        },
-        {
-            title : "My Spy",
-            image : require(`../../images/poster/myspy.jpg`),
-        },
-    ]
     
     const image1 = require(`../../images/carousel/myspy.jpg`);
     const image2 = require(`../../images/carousel/still2.jpg`);
@@ -83,21 +57,21 @@ render(){
                 </Button>
                 <div className="site-card-wrapper">
                     <Row gutter={[16, 8]}>
-                    { cardData.map (data=> (
+                    { upcoming.map (data=> 
                     <Col span={6}>
                         <Card hoverable title="" bordered={true} >
                         <img
-                            src={data.image}
+                            src={data.poster}
                             alt="Upcoming"
-                            style={{maxWidth: '100%'}}
+                            style={{maxWidth: '100%', maxHeight: '300px'}}
                         />
                         <Meta title={data.title} style={{paddingTop:"20px"}}/>
+                        <Meta title={data.releasedate} style={{paddingTop:"20px"}}/>
+                        <Meta title={data.genre} style={{paddingTop:"20px"}}/>
                         </Card >
                     </Col>
-                    ))
-                    }
+                    )}
                     </Row>
-                    
                     </div>
                 </Content>
                 <Footer style={{backgroundColor:'white' , textAlign: 'center'}}>Kelompok Film ©2020 </Footer>
@@ -106,12 +80,5 @@ render(){
         </div>
     );
     }
-  }
-       
-    
-
-        
-    
-
 
 export default Upcoming;
