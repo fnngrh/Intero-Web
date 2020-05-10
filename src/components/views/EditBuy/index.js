@@ -12,10 +12,16 @@ const { Content, Header,Footer } = Layout;
 
 
 const EditBuy = ({ ticket }) => {
-  const [newEmail, setEmail]= React.useState(ticket.newEmail);
-  const [newName, setName]= React.useState(ticket.newName);
-  const [newTotalTicket, setTotalTicket]= React.useState(ticket.newTotalTicket);
-  const [newChoosenMovie, setChoosenMovie]= React.useState(ticket.newChoosenMovie);
+  
+  const [newEmail, setEmail] = React.useState()
+  const [newName, setName] = React.useState()
+  const [newTotalTicket, setTotalTicket] = React.useState()
+  const [newChoosenMovie, setChoosenMovie] = React.useState()
+
+  // const [newEmail, setEmail]= React.useState(ticket.newEmail);
+  // const [newName, setName]= React.useState(ticket.newName);
+  // const [newTotalTicket, setTotalTicket]= React.useState(ticket.newTotalTicket);
+  // const [newChoosenMovie, setChoosenMovie]= React.useState(ticket.newChoosenMovie);
   
   // const [showticket, setShowTicket] = React.useState([]);
 
@@ -54,21 +60,22 @@ const EditBuy = ({ ticket }) => {
       >
         {/* {showticket.map(ticket => */}
         <Form.Item label="Email" name="email" style={{margin : '16px auto'}}>
-          <Input value={newEmail} onChange={(e) => setEmail(e.target.value)}/>
+          <Input value={newEmail} onChange={(e) => {setEmail(e.target.value)}}/>
         </Form.Item>
         <Form.Item label="Nama" name="name" style={{margin : '16px auto'}}>
-          <Input value={newName} onChange={(e) => setName(e.target.value)} />
+          <Input value={newName} onChange={(e) => {setName(e.target.value)}} />
         </Form.Item>
         <Form.Item label="Pilih Film" name="choosenmovie" style={{margin : '16px auto'}}>
-        
-          <Input value={newChoosenMovie} onChange={(e) => setChoosenMovie(e.target.value)} />
+          <Input value={newChoosenMovie} onChange={(e) => {setChoosenMovie(e.target.value)}} />
         </Form.Item>
         <Form.Item label="Jumlah Tiket">
-          <Input value={newTotalTicket} onChange={(e) => setTotalTicket(e.target.value)}/>
+          <Input value={newTotalTicket} onChange={(e) => {setTotalTicket(e.target.value)}}/>
         </Form.Item>
-        // )} 
+        {/* )}  */}
       </Form>
-      <Button type="primary" ghost style={{padding: '16px auto'}}>Update</Button>
+      <a href="/History">
+      <Button onClick={onUpdate} type="primary" ghost style={{padding: '16px auto'}}>Update</Button>
+      </a>
     </Content>
     <Footer style={{backgroundColor:'white' , textAlign: 'center'}}>Kelompok Film ©2020 </Footer>
     </Header>

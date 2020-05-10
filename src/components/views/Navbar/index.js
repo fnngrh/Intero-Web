@@ -41,7 +41,7 @@ class Navbar extends Component {
           </Menu.Item>
           <Menu.Item key="upcoming">
         <RightCircleTwoTone twoToneColor="#eb2f96"/>
-          <Link to="/Upcoming">Upcoming</Link>
+          <Link to="/upcoming">Upcoming</Link>
           </Menu.Item>
         <SubMenu
           title={

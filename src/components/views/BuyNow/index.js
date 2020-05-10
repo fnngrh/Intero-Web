@@ -22,27 +22,21 @@ function BuyNow() {
 
   const [nowshowing, setNowshowing] = React.useState([])
 
-    // React.useEffect(() => {
-    //     const fetchData = async () => {
-    //         const db = firebase.firestore()
-    //         const data = await db.collection("nowshowing").get()
-    //         setNowshowing(data.docs.map(doc => ({ ...doc.data(), id: doc.id })));
-    //     };
-    //     fetchData();
-    // }, []);
+    React.useEffect(() => {
+        const fetchData = async () => {
+            const db = firebase.firestore()
+            const data = await db.collection("nowshowing").get()
+            setNowshowing(data.docs.map(doc => ({ ...doc.data(), id: doc.id })));
+        };
+        fetchData();
+    }, []);
 
     
   const onCreate = () => {
     const db = firebase.firestore()
     db.collection('ticket').add({email: newEmail, name: newName, totalticket: newTotalTicket, choosenmovie: newChoosenMovie});
   }
-  // const addItem =()=>{
-  //   setNowshowing([nowshowing, {
-  //     id: nowshowing.length,
-  //     value : nowshowing.title
-  //   }])
-  // }
- 
+  
 
   return (
     <Layout style={{padding:'16px auto', background: '#fff'}}>
