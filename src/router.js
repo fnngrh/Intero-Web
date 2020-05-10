@@ -3,6 +3,7 @@ import {Switch, Route} from 'react-router-dom';
 import NowShowingPage from './components/views/NowShowing';
 import UpcomingPage from './components/views/ComingSoon';
 import BuyNowPage from './components/views/BuyNow';
+import EditPage from './components/views/EditBuy';
 import HistoryPage from './components/views/History';
 import AboutUsPage from './components/views/AboutUs';
 
@@ -12,6 +13,7 @@ const Router = () => {
                 <Route exact path="/" component={NowShowingPage}/>
                  <Route path="/upcoming" component={UpcomingPage}/> 
                 <Route path="/buyNow" component={BuyNowPage}/>
+                <Route path="/editbuy" component={EditPage}/>
                 <Route path="/history" component={HistoryPage}/>
                 <Route path="/aboutUs" component={AboutUsPage}/>
             </Switch>
