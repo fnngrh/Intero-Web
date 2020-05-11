@@ -23,16 +23,16 @@ const EditBuy = ({ ticket }) => {
   // const [newTotalTicket, setTotalTicket]= React.useState(ticket.newTotalTicket);
   // const [newChoosenMovie, setChoosenMovie]= React.useState(ticket.newChoosenMovie);
   
-  // const [showticket, setShowTicket] = React.useState([]);
+  const [showticket, setShowTicket] = React.useState([]);
 
-  // React.useEffect(() => {
-  //     const fetchData = async () => {
-  //         const db = firebase.firestore()
-  //         const data = await db.collection("ticket").get()
-  //         setShowTicket(data.docs.map(doc => ({ ...doc.data(), id: doc.id })));
-  //     }
-  //     fetchData();
-  // }, []);
+  React.useEffect(() => {
+      const fetchData = async () => {
+          const db = firebase.firestore()
+          const data = await db.collection("ticket").get()
+          setShowTicket(data.docs.map(doc => ({ ...doc.data(), id: doc.id })));
+      }
+      fetchData();
+  }, []);
   
 
   const onUpdate = () => {
@@ -53,26 +53,31 @@ const EditBuy = ({ ticket }) => {
               <h4>Edit Ticket</h4>
         </Button>
 
+     
       <Form
+        
         style={{padding: '16px auto'}}
         labelCol={{ span: 8 }}
         wrapperCol={{ span: 10 }}
       >
-        {/* {showticket.map(ticket => */}
+        
         <Form.Item label="Email" name="email" style={{margin : '16px auto'}}>
-          <Input value={newEmail} onChange={(e) => {setEmail(e.target.value)}}/>
+          <Input value={newEmail} onChange={(e) => setEmail(e.target.value)}/>
         </Form.Item>
         <Form.Item label="Nama" name="name" style={{margin : '16px auto'}}>
-          <Input value={newName} onChange={(e) => {setName(e.target.value)}} />
+          <Input value={newName} onChange={(e) => setName(e.target.value)} />
         </Form.Item>
-        <Form.Item label="Pilih Film" name="choosenmovie" style={{margin : '16px auto'}}>
-          <Input value={newChoosenMovie} onChange={(e) => {setChoosenMovie(e.target.value)}} />
+        <Form.Item label="Judul Film" name="choosenmovie" style={{margin : '16px auto'}}>
+          <Input value={newChoosenMovie} onChange={(e) => setChoosenMovie(e.target.value)} />
         </Form.Item>
         <Form.Item label="Jumlah Tiket">
-          <Input value={newTotalTicket} onChange={(e) => {setTotalTicket(e.target.value)}}/>
+          <Input value={newTotalTicket} onChange={(e) => setTotalTicket(e.target.value)}/>
         </Form.Item>
-        {/* )}  */}
+        
+        
       </Form>
+      
+      
       <a href="/History">
       <Button onClick={onUpdate} type="primary" ghost style={{padding: '16px auto'}}>Update</Button>
       </a>

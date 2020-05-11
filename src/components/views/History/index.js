@@ -41,7 +41,7 @@ function History() {
                    <Button><EditTwoTone /></Button>
                 </a>
                 <a href="/History">
-                  <ButtonAksi ticket={ticket}/>
+                  <ButtonAksi  ticket={ticket}/>
                 </a>
              </Card>
             )}

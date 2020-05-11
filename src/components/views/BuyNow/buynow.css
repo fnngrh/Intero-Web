@@ -7,3 +7,7 @@ display: block;
 flex-grow: 0;
 flex-shrink: 0;
 }
+
+.pointer{
+    pointer-events: none;
+}
