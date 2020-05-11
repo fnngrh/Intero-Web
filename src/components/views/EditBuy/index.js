@@ -1,5 +1,6 @@
 import React from 'react';
 import firebase from '../../../firebase';
+import { Link } from 'react-router-dom';
 import {
   Form,
   Input,
@@ -13,10 +14,10 @@ const { Content, Header,Footer } = Layout;
 
 const EditBuy = ({ ticket }) => {
   
-  const [newEmail, setEmail] = React.useState()
-  const [newName, setName] = React.useState()
-  const [newTotalTicket, setTotalTicket] = React.useState()
-  const [newChoosenMovie, setChoosenMovie] = React.useState()
+  const [email, setEmail] = React.useState()
+  const [name, setName] = React.useState()
+  const [totalticket, setTotalTicket] = React.useState()
+  const [choosenmovie, setChoosenMovie] = React.useState()
 
   // const [newEmail, setEmail]= React.useState(ticket.newEmail);
   // const [newName, setName]= React.useState(ticket.newName);
@@ -37,12 +38,10 @@ const EditBuy = ({ ticket }) => {
 
   const onUpdate = () => {
     const db = firebase.firestore()
-    db.collection('ticket').doc(ticket.id).set({...ticket, newEmail,newName,newTotalTicket,newChoosenMovie})
+    db.collection('ticket').doc(ticket.id).set({...ticket, email,name,totalticket,choosenmovie})
   }
 
   
-
-
 
 
   return (
@@ -62,25 +61,25 @@ const EditBuy = ({ ticket }) => {
       >
         
         <Form.Item label="Email" name="email" style={{margin : '16px auto'}}>
-          <Input value={newEmail} onChange={(e) => setEmail(e.target.value)}/>
+          <Input value={email} onChange={(e) => setEmail(e.target.value)}/>
         </Form.Item>
         <Form.Item label="Nama" name="name" style={{margin : '16px auto'}}>
-          <Input value={newName} onChange={(e) => setName(e.target.value)} />
+          <Input value={name} onChange={(e) => setName(e.target.value)} />
         </Form.Item>
         <Form.Item label="Judul Film" name="choosenmovie" style={{margin : '16px auto'}}>
-          <Input value={newChoosenMovie} onChange={(e) => setChoosenMovie(e.target.value)} />
+          <Input value={choosenmovie} onChange={(e) => setChoosenMovie(e.target.value)} />
         </Form.Item>
         <Form.Item label="Jumlah Tiket">
-          <Input value={newTotalTicket} onChange={(e) => setTotalTicket(e.target.value)}/>
+          <Input value={totalticket} onChange={(e) => setTotalTicket(e.target.value)}/>
         </Form.Item>
         
         
       </Form>
       
       
-      <a href="/History">
+      <Link to="/History">
       <Button onClick={onUpdate} type="primary" ghost style={{padding: '16px auto'}}>Update</Button>
-      </a>
+      </Link>
     </Content>
     <Footer style={{backgroundColor:'white' , textAlign: 'center'}}>Kelompok Film ©2020 </Footer>
     </Header>

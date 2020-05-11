@@ -3,6 +3,7 @@ import { Layout,Card,Row,Button} from 'antd';
 import './history.css';
 import firebase from '../../../firebase';
 import ButtonAksi from './buttonaction';
+import EditBuy from '../EditBuy';
 import { EditTwoTone } from '@ant-design/icons';
 
 const { Content, Header,Footer } = Layout;
@@ -37,11 +38,11 @@ function History() {
                <p>Email : <b>{ticket.email}</b></p>
                <p>Film yang dipilih : <b>{ticket.choosenmovie}</b></p>
                <p>Total Tiket : <b>{ticket.totalticket}</b></p>
-                <a href="/EditBuy">
-                   <Button><EditTwoTone /></Button>
-                </a>
+                
+                   <EditBuy ticket={ticket}><EditTwoTone /></EditBuy>
+                
                 <a href="/History">
-                  <ButtonAksi  ticket={ticket}/>
+                  <ButtonAksi ticket={ticket}/>
                 </a>
              </Card>
             )}
