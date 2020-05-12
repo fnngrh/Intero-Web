@@ -7,13 +7,9 @@ describe('Ticket', function(){
         cy.get('input[id="jmltiket"]').type('2')
         // cy.pause()
         
-        cy.get('.ant-btn').contains('Finish').should('be.visible').click()
+        cy.get('span').contains('Finish').should('be.visible').click({ force: true })
         // cy.post()
-        
-    })
-    it('history', function(){
-        cy.visit('http://localhost:3000/history')
-        // cy.get('.anticon anticon-delete').should('be.visible').click()
+    
     })
     
 })

@@ -5,11 +5,11 @@ import {
   Form,
   Input,
   Button,
-  Layout,Card,Row
-} from 'antd';
-import './edit.css'
+  notification
 
-const { Content, Header,Footer } = Layout;
+} from 'antd';
+//import './edit.css'
+
 
 
 const EditBuy = ({ ticket }) => {
@@ -39,16 +39,25 @@ const EditBuy = ({ ticket }) => {
   const onUpdate = () => {
     const db = firebase.firestore()
     db.collection('ticket').doc(ticket.id).set({...ticket, email,name,totalticket,choosenmovie})
+
+    notification.open({
+      message: 'Hai!',
+      description:
+        'Data telah berhasil di Update, Silahkan Reload Halaman ini!',
+    });
   }
 
   
 
 
   return (
-      <div>
+      <div style={{marginTop:'20px'}}>
+        <hr/>
+                      <h4 style={{marginTop:'15px'}}>Edit Ticket</h4>
+      
       <Form
-        style={{padding: '16px auto'}}
-        labelCol={{ span: 15 }}
+        style={{padding: '5px auto'}}
+        labelCol={{ span: 9 }}
         wrapperCol={{ span: 15 }}
       >
         
@@ -61,11 +70,13 @@ const EditBuy = ({ ticket }) => {
         <Form.Item label="Judul Film" name="choosenmovie" style={{margin : '16px auto'}}>
           <Input value={choosenmovie} onChange={(e) => setChoosenMovie(e.target.value)} />
         </Form.Item>
-        <Form.Item label="Jumlah Tiket">
+        <Form.Item label="Jumlah Tiket" name="jmltiket">
           <Input value={totalticket} onChange={(e) => setTotalTicket(e.target.value)}/>
         </Form.Item>
       </Form>
-      <Button onClick={onUpdate} type="primary" ghost style={{padding: '16px auto'}}><a href="/History">Update</a></Button>
+      <Link to="/History">
+      <Button onClick={onUpdate} type="primary" ghost style={{padding: '16px auto'}}>Update</Button>
+      </Link>
       </div>
   );
 };

@@ -33,9 +33,9 @@ function BuyNow() {
     <Layout style={{padding:'16px auto', background: '#fff'}}>
         <Header style={{background: '#fff'}}>
         <Content style={{padding : '16px auto'}}>
-        <Button shape="round"  style={{backgroundColor:'white', margin: '16px auto'}}>
+       
               <h4>Buy Ticket</h4>
-        </Button>
+        
 
       <Form
         style={{padding: '16px auto'}}
@@ -56,7 +56,7 @@ function BuyNow() {
         </Form.Item> 
       </Form>
       <Link to="/History">
-      <Button onClick={onCreate} class="pointer" type="primary" ghost style={{padding: '16px auto'}}>
+      <Button onClick={onCreate}  type="primary" ghost style={{padding: '16px auto'}}>
         Finish
         </Button>
         </Link>

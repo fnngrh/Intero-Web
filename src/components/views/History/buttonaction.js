@@ -1,6 +1,6 @@
 import React from 'react';
 import {Button} from 'antd';
-import { DeleteTwoTone } from '@ant-design/icons';
+import {Link} from 'react-router-dom'
 import firebase from '../../../firebase'
 
 const ButtonAksi = ({ticket}) => {
@@ -11,7 +11,9 @@ const ButtonAksi = ({ticket}) => {
    
 
     return (
-            <Button class="anticon anticon-delete" onClick={onDelete}><DeleteTwoTone twoToneColor="#eb2f96"/></Button>
+            <Link to="/buyNow">
+            <Button danger onClick={onDelete}>Delete</Button>
+            </Link>
     );
 }
 

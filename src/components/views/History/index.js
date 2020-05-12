@@ -38,9 +38,9 @@ function History() {
                <p>Email : <b>{ticket.email}</b></p>
                <p>Film yang dipilih : <b>{ticket.choosenmovie}</b></p>
                <p>Total Tiket : <b>{ticket.totalticket}</b></p>
-               <a href="/History">
+               {/* <a href="/History"> */}
                   <ButtonAksi ticket={ticket}/>
-                </a>
+                {/* </a> */}
                 <EditBuy ticket={ticket}> </EditBuy>
              </Card>
             )}
