@@ -45,14 +45,8 @@ const EditBuy = ({ ticket }) => {
 
 
   return (
-    <Layout style={{padding:'16px auto', background: '#fff'}}>
-        <Header style={{background: '#fff'}}>
-        <Content style={{padding : '16px auto'}}>
-
-        <Row justify="center">
-        <Card title="Edit Ticket" style={{ width: 300 }}>
+      <div>
       <Form
-        
         style={{padding: '16px auto'}}
         labelCol={{ span: 15 }}
         wrapperCol={{ span: 15 }}
@@ -72,15 +66,7 @@ const EditBuy = ({ ticket }) => {
         </Form.Item>
       </Form>
       <Button onClick={onUpdate} type="primary" ghost style={{padding: '16px auto'}}><a href="/History">Update</a></Button>
-      </Card>
-      </Row>
-      
-      
-      
-    </Content>
-    
-    </Header>
-    </Layout>
+      </div>
   );
 };
 
