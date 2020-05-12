@@ -7,7 +7,7 @@ import {
   Button,
   Layout,Card,Row
 } from 'antd';
-import './buynow.css'
+import './edit.css'
 
 const { Content, Header,Footer } = Layout;
 
@@ -52,11 +52,11 @@ const EditBuy = ({ ticket }) => {
         wrapperCol={{ span: 15 }}
       >
         
-        <Form.Item label="Email" name="email" style={{margin : '16px auto'}}>
-          <Input value={email} onChange={(e) => setEmail(e.target.value)}/>
-        </Form.Item>
         <Form.Item label="Nama" name="name" style={{margin : '16px auto'}}>
           <Input value={name} onChange={(e) => setName(e.target.value)} />
+        </Form.Item>
+        <Form.Item label="Email" name="email" style={{margin : '16px auto'}}>
+          <Input value={email} onChange={(e) => setEmail(e.target.value)}/>
         </Form.Item>
         <Form.Item label="Judul Film" name="choosenmovie" style={{margin : '16px auto'}}>
           <Input value={choosenmovie} onChange={(e) => setChoosenMovie(e.target.value)} />

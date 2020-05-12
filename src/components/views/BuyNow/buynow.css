@@ -11,3 +11,6 @@ flex-shrink: 0;
 .pointer{
     pointer-events: none;
 }
+.ant-form-item-label{
+    text-align: center;
+}
