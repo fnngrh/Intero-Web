@@ -33,20 +33,24 @@ function History() {
             </Button>
             <Row justify="center">
             {showticket.map(ticket =>
-             <Card title="Ticket" style={{ width: 300 }}>
+             <Card title="Ticket" style={{ width: 300, height: 357 }}>
                <p>Atas nama <b>{ticket.name}</b></p>
                <p>Email : <b>{ticket.email}</b></p>
                <p>Film yang dipilih : <b>{ticket.choosenmovie}</b></p>
                <p>Total Tiket : <b>{ticket.totalticket}</b></p>
-                
-                   <EditBuy ticket={ticket}><EditTwoTone /></EditBuy>
-                
-                <a href="/History">
+               <a href="/History">
                   <ButtonAksi ticket={ticket}/>
                 </a>
              </Card>
             )}
+            <Row>
+            {showticket.map(ticket =>
+            <EditBuy ticket={ticket}> </EditBuy>
+            )}
             </Row>
+            </Row>
+            
+            
               </Content>
               <Footer style={{backgroundColor:'white' , textAlign: 'center'}}>Kelompok Film ©2020 </Footer>
           </Header>
