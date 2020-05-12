@@ -19,21 +19,6 @@ const EditBuy = ({ ticket }) => {
   const [totalticket, setTotalTicket] = React.useState()
   const [choosenmovie, setChoosenMovie] = React.useState()
 
-  // const [newEmail, setEmail]= React.useState(ticket.newEmail);
-  // const [newName, setName]= React.useState(ticket.newName);
-  // const [newTotalTicket, setTotalTicket]= React.useState(ticket.newTotalTicket);
-  // const [newChoosenMovie, setChoosenMovie]= React.useState(ticket.newChoosenMovie);
-  
-  const [showticket, setShowTicket] = React.useState([]);
-
-  React.useEffect(() => {
-      const fetchData = async () => {
-          const db = firebase.firestore()
-          const data = await db.collection("ticket").get()
-          setShowTicket(data.docs.map(doc => ({ ...doc.data(), id: doc.id })));
-      }
-      fetchData();
-  }, []);
   
 
   const onUpdate = () => {
@@ -53,7 +38,7 @@ const EditBuy = ({ ticket }) => {
   return (
       <div style={{marginTop:'20px'}}>
         <hr/>
-                      <h4 style={{marginTop:'15px'}}>Edit Ticket</h4>
+        <h4 style={{marginTop:'15px'}}>Edit Ticket</h4>
       
       <Form
         style={{padding: '5px auto'}}

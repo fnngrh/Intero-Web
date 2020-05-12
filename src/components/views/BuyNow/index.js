@@ -7,11 +7,10 @@ import {
   Layout,
 } from 'antd';
 import './buynow.css'
-import {Select} from 'antd';
 import { Link } from 'react-router-dom';
 
 const { Content, Header,Footer } = Layout;
-const { Option } = Select;
+
 
 
 function BuyNow() {

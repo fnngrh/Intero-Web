@@ -54,23 +54,23 @@ class Navbar extends Component {
           <Menu.ItemGroup>
             <Menu.Item key="ticket">
             <PlusCircleTwoTone twoToneColor="#eb2f96"/>
-              <a href="/buyNow">
+              <Link to="/buyNow">
                   Buy Now
-              </a>
+              </Link>
             </Menu.Item>
             <Menu.Item key="">
             <InfoCircleTwoTone twoToneColor="#eb2f96"/>
-              <a href="/history">
+              <Link to="/history">
                   History
-              </a>
+              </Link>
             </Menu.Item>
           </Menu.ItemGroup>
         </SubMenu>
         <Menu.Item key="about">
         <CopyrightCircleTwoTone twoToneColor="#eb2f96" />
-          <a href="/aboutUs">
+          <Link to="/aboutUs">
             About Us
-          </a>
+          </Link>
         </Menu.Item>
       </Menu>
       </div>

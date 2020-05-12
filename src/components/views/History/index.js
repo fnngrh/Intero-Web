@@ -4,7 +4,6 @@ import './history.css';
 import firebase from '../../../firebase';
 import ButtonAksi from './buttonaction';
 import EditBuy from '../EditBuy';
-import { EditTwoTone } from '@ant-design/icons';
 
 const { Content, Header,Footer } = Layout;
 
