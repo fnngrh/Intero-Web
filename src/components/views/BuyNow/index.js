@@ -32,10 +32,9 @@ function BuyNow() {
     <Layout style={{padding:'16px auto', background: '#fff'}}>
         <Header style={{background: '#fff'}}>
         <Content style={{padding : '16px auto'}}>
-       
+        <Button shape="round"  style={{backgroundColor:'white'}}>
               <h4>Buy Ticket</h4>
-        
-
+        </Button>
       <Form
         style={{padding: '16px auto'}}
         labelCol={{ span: 8 }}
@@ -59,7 +58,6 @@ function BuyNow() {
         Finish
         </Button>
         </Link>
-        
     </Content>
     <Footer style={{backgroundColor:'white' , textAlign: 'center'}}>Kelompok Film ©2020 </Footer>
     </Header>

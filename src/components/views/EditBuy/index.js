@@ -1,6 +1,5 @@
 import React from 'react';
 import firebase from '../../../firebase';
-import { Link } from 'react-router-dom';
 import {
   Form,
   Input,
@@ -8,7 +7,6 @@ import {
   notification
 
 } from 'antd';
-//import './edit.css'
 
 
 
@@ -59,9 +57,7 @@ const EditBuy = ({ ticket }) => {
           <Input value={totalticket} onChange={(e) => setTotalTicket(e.target.value)}/>
         </Form.Item>
       </Form>
-      <Link to="/History">
       <Button onClick={onUpdate} type="primary" ghost style={{padding: '16px auto'}}>Update</Button>
-      </Link>
       </div>
   );
 };
